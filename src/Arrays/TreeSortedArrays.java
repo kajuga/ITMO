@@ -26,7 +26,6 @@ public class TreeSortedArrays {
      * Bubblesorting по возрастанию
      * @param array
      */
-
     public void bubbleSorting(int[] array) {
         boolean isSorted = false;
         int temp;
