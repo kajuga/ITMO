@@ -20,6 +20,7 @@ public class FindUnicalInArray {
 
     }
     public int unicalFinder(int[] array) {
+        boolean isBreak = false;
         int result = 0;
         for (int i = 0; i < array.length; i++) {
             for (int j = 1; j < array.length; j++) {
@@ -27,14 +28,15 @@ public class FindUnicalInArray {
                     continue;
                 } else {
                     result = array[i];
+                    isBreak = true;
                     break;
                 }
+            }
+            if(isBreak){
+                break;
             }
         }
         return result;
     }
-
 }
-
-
 
