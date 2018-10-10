@@ -1,42 +1,32 @@
 package Arrays;
 
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.Random;
+
 /**
  * @author Fedorov Aleksandr (msg2fedrov@gmail.com)
  * Дан массив чисел. Найдите первое уникальное в это массиве число.
  * Например, для массива [1, 2, 3, 1, 2, 4] это число 3.
  */
 public class FindUnicalInArray {
-
     public static void main(String[] args) {
-        FindUnicalInArray findUnicalInArray = new FindUnicalInArray();
-        int[] array = new int[10];
-        for (int i = 0; i < array.length; i++) {
-            array[i] = (int) (Math.random() * 10);
-            System.out.print(array[i] + " ");
-        }
-        int res = findUnicalInArray.unicalFinder(array);
-        System.out.println();
-        System.out.println(array[res]);
+        PrintWriter pw = new PrintWriter(System.out, true);
+        int[] arr = new int[20];
 
-    }
-    public int unicalFinder(int[] array) {
-        boolean isBreak = false;
-        int result = 0;
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 1; j < array.length; j++) {
-                if(array[i] == array[j]) {
-                    continue;
-                } else {
-                    result = array[i];
-                    isBreak = true;
-                    break;
-                }
-            }
-            if(isBreak){
-                break;
-            }
+        for (int i = 0; i < arr.length; i++)
+            arr[i] = (int)(Math.random() * 10);
+//        arr[i] = (new Random().nextInt(20));
+
+        pw.print(Arrays.toString(arr) + "\n");
+        for (int i = 0; i < arr.length; i++){
+            boolean found = false;
+            for (int j = 0; j < arr.length; j++)
+                if (i != j && arr[i] == arr[j]) found = true;
+
+            if (found == false) pw.printf(arr[i] + " ");
+            break;
         }
-        return result;
     }
 }
 
