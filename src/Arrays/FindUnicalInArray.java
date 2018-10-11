@@ -1,8 +1,6 @@
 package Arrays;
 
-import java.io.PrintWriter;
 import java.util.Arrays;
-import java.util.Random;
 
 /**
  * @author Fedorov Aleksandr (msg2fedrov@gmail.com)
@@ -10,23 +8,46 @@ import java.util.Random;
  * Например, для массива [1, 2, 3, 1, 2, 4] это число 3.
  */
 public class FindUnicalInArray {
-    public static void main(String[] args) {
-        PrintWriter pw = new PrintWriter(System.out, true);
-        int[] arr = new int[20];
 
-        for (int i = 0; i < arr.length; i++)
-            arr[i] = (int)(Math.random() * 10);
-//        arr[i] = (new Random().nextInt(20));
+    private static void findUnicalInArray(int[] arr){
 
-        pw.print(Arrays.toString(arr) + "\n");
+        boolean existUnique = false;
+
         for (int i = 0; i < arr.length; i++){
             boolean found = false;
-            for (int j = 0; j < arr.length; j++)
-                if (i != j && arr[i] == arr[j]) found = true;
 
-            if (found == false) pw.printf(arr[i] + " ");
-            break;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    found = true;
+                    break; //выходим из вложенного цикла
+                }
+            }
+
+            if (found == false) {
+                System.out.println(arr[i]);
+                existUnique = true;
+                break; // выходим из внутреннего цикла
+            }
         }
+
+        if (existUnique == false){
+            System.out.println("Not unique value");
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = new int[20];
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) (Math.random() * 10);
+        }
+
+        System.out.println(Arrays.toString(arr));
+        findUnicalInArray(arr);
+
+        int[] arr1 = new int[]{1, 2, 3, 1, 2, 4};
+        System.out.println(Arrays.toString(arr1));
+        findUnicalInArray(arr1);
     }
 }
 
