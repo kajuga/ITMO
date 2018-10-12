@@ -16,8 +16,8 @@ public class AlgebraicSummFinder {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String inputFirst = reader.readLine();
         String inputSecond = reader.readLine();
-        int valueN =Integer.parseInt(inputFirst);
-        int valueK =Integer.parseInt(inputSecond);
+        int valueN = Integer.parseInt(inputFirst);
+        int valueK = Integer.parseInt(inputSecond);
         int[] array = new int[valueN];
         AlgebraicSummFinder algebraicSummFinder = new AlgebraicSummFinder();
         System.out.println(algebraicSummFinder.summCounter(array, valueK));
@@ -46,7 +46,7 @@ public class AlgebraicSummFinder {
      * @param row - степень
      * @return искомое
      */
-    public int getRowValue (int value, int row) {
+    public int getRowValue(int value, int row) {
             int result = 1;
             for (int i = 1; i <= row; i++){
                 result = result * value;
