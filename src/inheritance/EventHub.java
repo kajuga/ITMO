@@ -25,8 +25,6 @@ public class EventHub {
         }
     }
 
-
-
     public void subscribe(Subscribtion subscribtion, Class<? extends Event> aClass){
         List<Subscribtion> subscribtions =
                 hashMap.get(aClass);
@@ -42,6 +40,10 @@ public class EventHub {
         for(List<Subscribtion> list : hashMap.values()){
             list.remove(subscribtion);
         }
+    }
+
+    public static void main(String[] args) {
+
     }
 
 }
